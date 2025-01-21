@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Test</title>
+</head>
+<body>
+
+
+<fieldset>
+  <form action="#">
+    <h1>Jeu de Devinette</h1>
+
+
+    <label>Devinez un nombre entre 1 et 100 </label>
+    <input type="number" id="devinezNumber" min="1" max="100">
+    <button id="deviner" onclick=ablation()> Deviner</button>
+
+    <div id="resultat"></div>
+    <div id="compteur"></div>
+
+
+  </form>
+</fieldset>
+
+<script>
+
+  let devinezNumberElement = document.getElementById('devinezNumber');
+  let RandomMaths = Math.floor(Math.random() * 101) + 1;
+  console.log(RandomMaths);
+  let resultatElement = document.getElementById('resultat');
+  let count = 5;
+
+  function ablation() {
+    if (((devinezNumberElement.value) == RandomMaths)) {
+      document.getElementById('resultat').innerText = "Victoire ! Il te restait " + count + " essaies";
+      count--
+    } else if (((devinezNumberElement.value) > RandomMaths)) {
+      document.getElementById('resultat').innerText = "C'est plus petit ! Essayez encore. Il te reste " + count + " essaies";
+      count--
+    } else if (((devinezNumberElement.value) < RandomMaths)) {
+      document.getElementById('resultat').innerText = "C'est plus grand ! Essayez encore. Il te reste " + count + " essaies";
+      count--
+    }
+
+    if (count === 0 && devinezNumberElement.value !== RandomMaths) {
+      document.getElementById('resultat').innerText = "Perdu ! ";
+      document.getElementById('deviner').disabled = true;
+    }
+
+  }
+
+  function compter() {
+    let count = 5;
+    let btn = document.getElementById('deviner');
+    let affichage = document.getElementById('compteur');
+
+    btn.onclick = function () {
+      count--;
+      affichage.textContent = count;
+    }
+  }
+
+</script>
+
+
+</body>
+</html>

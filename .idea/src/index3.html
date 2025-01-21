@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Youpi</title>
+</head>
+<body>
+
+<h1>Manipulation de Chaîne de Caractères</h1>
+<br>
+<button id="btn" onclick="afficher()">Saisir une chaîne de texte</button>
+
+
+<script>
+
+var button = document.getElementById("btn");
+
+
+function afficher() {
+    let truc = prompt("Entrez votre texte ici : ");
+    let lenght = truc.length;
+    let caps = truc.toUpperCase()
+    let min = truc.toLowerCase()
+    let space = truc.replace(" ","_");
+
+    alert("Longueur de la chaîne : " + lenght + "\n" + "Chaîne en majuscules : " + caps + "\n" + "Chaînes en minuscules : " + min + "\n" + "Chaîne avec espaces remplacés par des underscores : " + space);
+
+}
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>oui</title>
+</head>
+<body>
+
+
+<h1>Calculateur de Statistiques</h1>
+
+<button onclick="truc()">Saisir une liste de nombres</button>
+
+
+<script>
+const initialValue = 0;
+  function truc() {
+    let userInput = prompt("Entrez une liste de nombres séparés par des virgules (ex : 1,2,3,4,5) : ");
+    let count = userInput.split(",");
+    let convert = count.map(Number);
+    let add = convert.reduce((accumulator ,currentValue) => accumulator + currentValue, initialValue);
+    let lenghtArray = convert.length;
+    let moyenne = add / lenghtArray;
+    let array = convert.map(Number);
+    let max = Math.max(...array);
+    let min = Math.min(...array);
+
+    alert("Statistiques calculées : " + "\n" + "- Somme : " + add + "\n" + "- Moyenne : " + moyenne + "\n" + "- Nombre le plus grand : " + max + "\n" + "- Nombre le plus petit : " + min);
+  }
+
+</script>
+</body>
+</html>

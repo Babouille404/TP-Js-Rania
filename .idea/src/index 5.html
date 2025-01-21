@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manipulation2chaine</title>
+</head>
+<body>
+<h1>Manipulation de Chaînes</h1>
+<br>
+<button onclick="saisirchaine()">saisir une chaine de texte</button>
+
+<script>
+  function saisirchaine() {
+    let chaine= prompt("Entrez une chaine de texte :");
+
+    let length = chaine.length;
+    let Maj = chaine.toUpperCase();
+    let Min = chaine.toLowerCase();
+    let Remplacer = chaine.replace(" ", "_");
+
+    alert("Longueur de la chaîne de : " + lenght + "\n" + "blabla" + Maj)
+  }
+
+</script>
+</body>
+</html>

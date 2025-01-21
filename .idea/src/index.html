@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript Entrainement</title>
+    <script src="index.js"></script>
+</head>
+<body>
+
+<fieldset>
+
+    <form action="#">
+        <label for="firstNumber">1er Numéro</label>
+        <input type="number" id="firstNumber"> <br>
+        <br>
+        <label for="secondNumber">2e Numéro</label>
+        <input type="number" id="secondNumber">
+        <br>
+        <br>
+        <button id="Multiplier" onclick="multiplier()">Multiplier</button>
+        <button id="Diviser" onclick="diviser()">Diviser</button>
+        <br>
+        <br>
+
+        <label for="result">Le résultat est : </label> <br>
+        <textarea id="resultArea"></textarea>
+
+    </form>
+
+</fieldset>
+
+<fieldset>
+    <form action="#">
+        <h1>Jeu de Devinette</h1>
+
+
+        <label>Devinez un nombre entre 1 et 100 </label>
+        <input type="number" id="devinezNumber" min="1" max="100">
+        <button id="deviner" onclick=ablation()> Deviner</button>
+
+        <div id="resultat"></div>
+        <div id="compteur"></div>
+
+
+    </form>
+</fieldset>
+
+<script>
+    var firstNumber = document.getElementById('firstNumber');
+    var secondNumber = document.getElementById('secondNumber');
+    var resultElement = document.getElementById('resultArea');
+    var multiplierElement = document.getElementById('Multiplier');
+    var DiviserElement = document.getElementById('Diviser');
+    var devinezNumberElement = document.getElementById('deviner');
+    const RandomMaths = Math.floor(Math.random() * 101) + 1;
+    var resultatElement = document.getElementById('resultat');
+
+    function multiplier() {
+
+        document.getElementById('resultArea').textContent =  "Le résultat c'est " + (parseInt(firstNumber.value)) * (parseInt(secondNumber.value));
+    }
+
+    function diviser() {
+
+        document.getElementById('resultArea').textContent = (parseFloat(firstNumber.value)) / (parseFloat(secondNumber.value));
+
+    }
+
+    let devinezNumberElement = document.getElementById('devinezNumber');
+    let RandomMaths = Math.floor(Math.random() * 101) + 1;
+    let resultatElement = document.getElementById('resultat');
+    let count = 5;
+
+    function ablation() {
+        if (((devinezNumberElement.value) == RandomMaths)) {
+            document.getElementById('resultat').innerText = "Victoire ! Il te restait " + count + " essaies";
+            count--
+        } else if (((devinezNumberElement.value) > RandomMaths)) {
+            document.getElementById('resultat').innerText = "C'est plus petit ! Essayez encore. Il te reste " + count + " essaies";
+            count--
+        } else if (((devinezNumberElement.value) < RandomMaths)) {
+            document.getElementById('resultat').innerText = "C'est plus grand ! Essayez encore. Il te reste " + count + " essaies";
+            count--
+        }
+
+        if (count === 0 && devinezNumberElement.value !== RandomMaths) {
+            document.getElementById('resultat').innerText = "Perdu ! ";
+            document.getElementById('deviner').disabled = true;
+        }
+
+    }
+
+</script>
+
+
+</body>
+</html>
